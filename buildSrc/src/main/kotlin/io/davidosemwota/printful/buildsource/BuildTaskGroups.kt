@@ -1,4 +1,4 @@
-package io.davidosemwota.template.buildsource
+package io.davidosemwota.printful.buildsource
 
 object BuildTaskGroups {
 

@@ -1,5 +1,5 @@
 @file:Suppress("SpellCheckingInspection")
-package io.davidosemwota.template.buildsource
+package io.davidosemwota.printful.buildsource
 
 object Libs {
 

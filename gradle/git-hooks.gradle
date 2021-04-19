@@ -1,6 +1,5 @@
-
-import io.davidosemwota.template.buildsource.utils.SystemOSUtilsKt
-import io.davidosemwota.template.buildsource.BuildTaskGroups
+import io.davidosemwota.printful.buildsource.utils.SystemOSUtilsKt
+import io.davidosemwota.printful.buildsource.BuildTaskGroups
 
 // Task to copy files from git-hooks to .get/hooks/
 task copyGitHooks(type: Copy) {

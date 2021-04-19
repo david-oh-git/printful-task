@@ -1,4 +1,4 @@
-package io.davidosemwota.template.buildsource.utils
+package io.davidosemwota.printful.buildsource.utils
 
 import org.gradle.api.Project
 import java.util.Properties

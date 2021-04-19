@@ -1,4 +1,4 @@
-package io.davidosemwota.template.buildsource.utils
+package io.davidosemwota.printful.buildsource.utils
 
 import java.util.Locale
 
