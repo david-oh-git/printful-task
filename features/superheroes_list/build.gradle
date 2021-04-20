@@ -30,6 +30,7 @@ android {
 
 dependencies {
     implementation project(PrintFulModules.app)
+    implementation project(PrintFulModules.data)
     implementation project(PrintFulModules.ui)
 
     implementation Libs.Kotlin.stdlib

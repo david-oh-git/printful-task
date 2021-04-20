@@ -83,7 +83,6 @@ android {
 
 dependencies {
 
-    implementation project(PrintFulModules.data)
 
     implementation Libs.Kotlin.stdlib
     implementation Libs.Coroutines.android
