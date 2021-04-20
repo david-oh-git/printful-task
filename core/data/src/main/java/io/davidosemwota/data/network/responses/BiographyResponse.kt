@@ -1,5 +1,8 @@
 package io.davidosemwota.data.network.responses
 
+import androidx.annotation.Keep
+
+@Keep
 class BiographyResponse(
         val fullName: String,
         val alterEgos: String,

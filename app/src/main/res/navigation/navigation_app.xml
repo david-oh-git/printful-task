@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_app"
+    app:startDestination="@id/listOfSuperheroesFragment">
+
+    <fragment
+        android:id="@+id/listOfSuperheroesFragment"
+        android:name="io.davidosemwota.superheroes_list.superheroes.ListOfSuperheroesFragment"
+        app:moduleName="PrintFul.features.superheroes_list"
+        android:label="ListOfSuperheroesFragment" />
+</navigation>

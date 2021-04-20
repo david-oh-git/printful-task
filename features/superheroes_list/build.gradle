@@ -1,0 +1,45 @@
+import io.davidosemwota.printful.buildsource.Libs
+import io.davidosemwota.printful.buildsource.PrintFulModules
+
+plugins {
+    id 'com.android.dynamic-feature'
+    id 'kotlin-android'
+}
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation project(PrintFulModules.app)
+    implementation project(PrintFulModules.ui)
+
+    implementation Libs.Kotlin.stdlib
+    implementation Libs.Coroutines.android
+    implementation Libs.Coroutines.core
+    implementation Libs.AndroidX.coreKtx
+    implementation Libs.AndroidX.appcompat
+    implementation Libs.material
+    implementation Libs.AndroidX.constraintLayout
+    implementation Libs.AndroidX.recyclerView
+    implementation Libs.AndroidX.Lifecycle.viewmodel
+    implementation Libs.AndroidX.Lifecycle.liveDataKtx
+}

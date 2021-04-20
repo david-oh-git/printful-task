@@ -1,5 +1,8 @@
 package io.davidosemwota.data.network.responses
 
+import androidx.annotation.Keep
+
+@Keep
 data class AppearanceResponse(
      val gender: String,
      val race: String,

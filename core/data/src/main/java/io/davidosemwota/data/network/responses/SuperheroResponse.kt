@@ -1,5 +1,8 @@
 package io.davidosemwota.data.network.responses
 
+import androidx.annotation.Keep
+
+@Keep
 data class SuperheroResponse(
         val id: Int,
         val name: String,

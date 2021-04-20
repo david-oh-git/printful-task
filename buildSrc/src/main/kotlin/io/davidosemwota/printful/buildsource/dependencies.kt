@@ -58,9 +58,18 @@ object Libs {
     object AndroidX {
         const val appcompat = "androidx.appcompat:appcompat:1.2.0"
         const val palette = "androidx.palette:palette:1.0.0"
-
+        const val recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
         const val coreKtx = "androidx.core:core-ktx:1.3.2"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.0.4"
+
+        object Navigation {
+            private const val version = "2.3.5"
+            const val navSafeArgsPlugin = "androidx.navigation:navigation-safe-args-gradle-plugin:$version"
+            const val navigationUi = "androidx.navigation:navigation-ui-ktx:$version"
+            const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:$version"
+            const val navigationTesting = "androidx.navigation:navigation-testing:$version"
+            const val dynamicFeatures = "androidx.navigation:navigation-dynamic-features-fragment:$version"
+        }
 
         object Lifecycle {
             private const val version = "2.3.1"
