@@ -13,8 +13,8 @@ import retrofit2.Response
 import timber.log.Timber
 
 class RemoteSource(
-    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
-    private val superheroApiService: SuperheroApiService
+    private val superheroApiService: SuperheroApiService,
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : SuperheroSource {
 
     override suspend fun getSuperheros(): Flow<List<Superhero>> {
