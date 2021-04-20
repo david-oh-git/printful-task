@@ -43,4 +43,6 @@ dependencies {
     implementation Libs.AndroidX.recyclerView
     implementation Libs.AndroidX.Lifecycle.viewmodel
     implementation Libs.AndroidX.Lifecycle.liveDataKtx
+    // SwipeRefreshLayout
+    implementation Libs.AndroidX.swipeRefreshLayout
 }

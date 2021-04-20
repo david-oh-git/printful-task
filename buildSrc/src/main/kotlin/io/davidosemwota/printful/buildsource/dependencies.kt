@@ -61,6 +61,7 @@ object Libs {
         const val recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
         const val coreKtx = "androidx.core:core-ktx:1.3.2"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.0.4"
+        const val swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
         object Navigation {
             private const val version = "2.3.5"
