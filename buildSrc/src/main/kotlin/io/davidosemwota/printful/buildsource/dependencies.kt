@@ -4,16 +4,24 @@ package io.davidosemwota.printful.buildsource
 object Libs {
 
     object Versions {
-        const val ktlint = "0.40.0"
+        const val ktlint = "0.41.0"
     }
 
     const val androidGradlePlugin = "com.android.tools.build:gradle:4.1.2"
-    const val jdkDesugar = "com.android.tools:desugar_jdk_libs:1.0.9"
     const val benManesUpdatePlugin = "com.github.ben-manes:gradle-versions-plugin:0.36.0"
     const val spotlessPlugin = "com.diffplug.spotless:spotless-plugin-gradle:5.11.0"
-    const val ktlint = "com.pinterest:ktlint:${Versions.ktlint}"
 
+    const val jdkDesugar = "com.android.tools:desugar_jdk_libs:1.0.9"
+    const val ktlint = "com.pinterest:ktlint:${Versions.ktlint}"
+    const val httpLogging = "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    const val timber = "com.jakewharton.timber:timber:4.7.1"
     const val material = "com.google.android.material:material:1.3.0"
+
+    const val truth = "com.google.truth:truth:1.1.2"
+    const val mockWebServer = "com.squareup.okhttp3:mockwebserver:4.9.0"
+    const val mockk = "io.mockk:mockk:1.10.2"
+    const val robolectric = "org.robolectric:robolectric:4.5.1"
+    const val archCore = "androidx.arch.core:core-testing:2.1.0"
 
     object Detekt {
         const val version = "1.0.0-RC16"
@@ -33,6 +41,7 @@ object Libs {
         const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
         const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version"
         const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version"
+        const val playServices = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$version"
     }
 
     object OkHttp {
@@ -54,10 +63,13 @@ object Libs {
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.0.4"
 
         object Lifecycle {
-            private const val version = "2.3.0"
-            const val viewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha02"
+            private const val version = "2.3.1"
             const val viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$version"
             const val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:$version"
+            const val compiler = "androidx.lifecycle:lifecycle-compiler:$version"
+            const val extentions = "androidx.lifecycle:lifecycle-extentions:$version"
+            const val lifecycle = "androidx.lifecycle:lifecycle-common-java8:$version"
+            const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:$version"
         }
 
         object Test {
@@ -80,6 +92,20 @@ object Libs {
             const val ktx = "androidx.room:room-ktx:$version"
             const val compiler = "androidx.room:room-compiler:$version"
         }
+    }
+
+    object Retrofit {
+        private const val version = "2.9.0"
+        const val retrofit = "com.squareup.retrofit2:retrofit:$version"
+        const val retrofitgson = "com.squareup.retrofit2:converter-gson:$version"
+    }
+
+    object Junit5 {
+        private const val version = "5.7.0"
+        const val vantage = "org.junit.vintage:junit-vintage-engine:$version"
+        const val api = "org.junit.jupiter:junit-jupiter-api:$version"
+        const val engine = "org.junit.jupiter:junit-jupiter-engine:$version"
+        const val platform = "org.junit.platform:junit-platform-launcher:$version"
     }
 
 }
