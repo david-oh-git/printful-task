@@ -3,6 +3,7 @@ import io.davidosemwota.printful.buildsource.Libs
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -45,6 +46,10 @@ dependencies {
     implementation Libs.httpLogging
     // Timber
     implementation Libs.timber
+    // Room DB
+    implementation Libs.AndroidX.Room.runtime
+    implementation Libs.AndroidX.Room.ktx
+    kapt Libs.AndroidX.Room.compiler
 
     //Unit tests
 
@@ -53,7 +58,17 @@ dependencies {
     testRuntimeOnly Libs.Junit5.engine
     // Truth
     testImplementation Libs.truth
+
     testImplementation Libs.mockWebServer
     testImplementation Libs.mockk
     testImplementation Libs.archCore
+    //Robolectric
+    testImplementation Libs.robolectric
+    // Coroutine
+    testImplementation Libs.Coroutines.test
+    testImplementation Libs.AndroidX.Test.core
+    // Room DB
+    testImplementation Libs.AndroidX.Room.test
+
+
 }
