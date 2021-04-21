@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -14,6 +15,8 @@ import io.davidosemwota.superheroes_list.SuperheroItem
 import io.davidosemwota.superheroes_list.databinding.FragmentSuperheroesBinding
 import io.davidosemwota.superheroes_list.superheroes.adaptors.SuperheroAdaptor
 import io.davidosemwota.ui.extentions.observe
+import io.davidosemwota.ui.extentions.setItemDecorationSpacing
+import io.davidosemwota.ui.extentions.setSharedElementTransitions
 import io.davidosemwota.ui.extentions.visible
 
 class ListOfSuperheroesFragment : Fragment() {
@@ -29,6 +32,11 @@ class ListOfSuperheroesFragment : Fragment() {
         SuperheroAdaptor(viewModel)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setSharedElementTransitions()
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentSuperheroesBinding.inflate(inflater)
         return binding.root
@@ -37,6 +45,7 @@ class ListOfSuperheroesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        ( requireActivity() as AppCompatActivity ).setSupportActionBar(binding.toolbar)
         observe(viewModel.superheroes, ::onViewDataChange)
         observe(viewModel.state, ::onViewStateChange)
         observe(viewModel.isCacheAvailable, ::onCacheDataIsAvailable)
@@ -49,7 +58,7 @@ class ListOfSuperheroesFragment : Fragment() {
     }
 
     private fun onViewStateChange(viewState: ListOfSuperheroesViewState) {
-        binding.swipeRefreshlayout.isRefreshing = viewState.isRefreshing()
+        binding.swipeRefreshLayout.isRefreshing = viewState.isRefreshing()
         when (viewState) {
             is ListOfSuperheroesViewState.Error -> {
                 errorViewState()
@@ -118,9 +127,10 @@ class ListOfSuperheroesFragment : Fragment() {
     private fun initRecyclerView() {
         binding.includeListLoaded.superheroesList.apply {
             adapter = _adaptor
+            setItemDecorationSpacing(10f)
         }
 
-        binding.swipeRefreshlayout.setOnRefreshListener {
+        binding.swipeRefreshLayout.setOnRefreshListener {
             viewModel.refresh()
         }
     }

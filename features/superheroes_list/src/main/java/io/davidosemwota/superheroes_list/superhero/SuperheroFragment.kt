@@ -5,16 +5,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import io.davidosemwota.data.Graph
 import io.davidosemwota.superheroes_list.R
+import io.davidosemwota.superheroes_list.SuperheroItem
 import io.davidosemwota.superheroes_list.databinding.FragmentSuperheroBinding
+import io.davidosemwota.ui.extentions.observe
+import io.davidosemwota.ui.extentions.setImage
 import io.davidosemwota.ui.extentions.setSharedElementTransitions
 
 class SuperheroFragment : Fragment() {
 
     private lateinit var binding: FragmentSuperheroBinding
     private val args: SuperheroFragmentArgs by navArgs()
+    private val viewModel: SuperheroViewModel by viewModels {
+        SuperheroViewModelFactory(
+                Graph.provideRepository(requireContext())
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +45,19 @@ class SuperheroFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpToolbar()
+        postponeEnterTransition()
+        view.doOnPreDraw { startPostponedEnterTransition() }
+        observe(viewModel.superheroItem, ::onViewDataChange)
+        viewModel.fetchItem(args.id)
+    }
+
+    private fun onViewDataChange(superheroItem: SuperheroItem) {
+        binding.collapsingToolbar.title = superheroItem.name
+        binding.image.apply {
+            setImage(superheroItem.imageUrl, null)
+            transitionName = superheroItem.id.toString()
+        }
+        requireActivity().actionBar?.title = superheroItem.name
     }
 
     private fun setUpToolbar() {

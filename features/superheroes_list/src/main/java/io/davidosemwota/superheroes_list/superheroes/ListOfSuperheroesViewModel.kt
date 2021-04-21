@@ -48,7 +48,11 @@ class ListOfSuperheroesViewModel(
             }
 
             is NetworkState.Error -> {
-                ListOfSuperheroesViewState.Error
+                if(superheroes.value?.isNotEmpty() == true){
+                    ListOfSuperheroesViewState.Loaded
+                }
+                else
+                    ListOfSuperheroesViewState.Error
             }
         }
     }
