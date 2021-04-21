@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import io.davidosemwota.data.Graph
 import io.davidosemwota.superheroes_list.SuperheroItem
 import io.davidosemwota.superheroes_list.databinding.FragmentSuperheroesBinding
@@ -16,14 +19,14 @@ import io.davidosemwota.ui.extentions.visible
 class ListOfSuperheroesFragment : Fragment() {
 
     private lateinit var binding: FragmentSuperheroesBinding
-    private val _adaptor: SuperheroAdaptor by lazy {
-        SuperheroAdaptor()
-    }
 
     private val viewModel: ListOfSuperheroesViewModel by viewModels {
         ListOfSuperheroesViewModelFactory(
             Graph.provideRepository(requireContext())
         )
+    }
+    private val _adaptor: SuperheroAdaptor by lazy {
+        SuperheroAdaptor(viewModel)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -37,6 +40,7 @@ class ListOfSuperheroesFragment : Fragment() {
         observe(viewModel.superheroes, ::onViewDataChange)
         observe(viewModel.state, ::onViewStateChange)
         observe(viewModel.isCacheAvailable, ::onCacheDataIsAvailable)
+        observe(viewModel.event, ::onViewEventChange)
         initRecyclerView()
     }
 
@@ -64,6 +68,14 @@ class ListOfSuperheroesFragment : Fragment() {
             }
 
             is ListOfSuperheroesViewState.Refreshing -> {
+            }
+        }
+    }
+
+    private fun onViewEventChange(viewEvent: ListOfSuperheroesViewEvent) {
+        when(viewEvent) {
+            is ListOfSuperheroesViewEvent.OpenSuperhero -> {
+                navigateToSuperheroFragment(viewEvent.id, viewEvent.imageView)
             }
         }
     }
@@ -111,5 +123,17 @@ class ListOfSuperheroesFragment : Fragment() {
         binding.swipeRefreshlayout.setOnRefreshListener {
             viewModel.refresh()
         }
+    }
+
+    private fun navigateToSuperheroFragment(
+        id: Int,
+        imageView: AppCompatImageView
+    ) {
+        val action = ListOfSuperheroesFragmentDirections
+            .actionListOfSuperheroesFragmentToSuperheroFragment(id)
+        val extras = FragmentNavigatorExtras(
+            imageView to id.toString()
+        )
+        findNavController().navigate(action, extras)
     }
 }

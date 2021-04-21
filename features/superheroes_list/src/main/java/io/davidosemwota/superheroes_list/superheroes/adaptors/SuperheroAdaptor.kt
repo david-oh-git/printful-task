@@ -4,12 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.davidosemwota.superheroes_list.SuperheroItem
+import io.davidosemwota.superheroes_list.superheroes.ListOfSuperheroesViewModel
 import io.davidosemwota.ui.base.BaseListAdaptor
 
 /**
  * Adaptor for the [RecyclerView] that represents the list of [SuperheroItem] .
  */
-class SuperheroAdaptor : BaseListAdaptor<SuperheroItem>(
+class SuperheroAdaptor(
+    val viewModel: ListOfSuperheroesViewModel
+) : BaseListAdaptor<SuperheroItem>(
     itemsSame = { old,new -> old.id == new.id },
     contentsSame = { old, new -> old == new }
 ) {
@@ -36,7 +39,7 @@ class SuperheroAdaptor : BaseListAdaptor<SuperheroItem>(
      */
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder) {
-            is SuperheroViewHolder -> holder.bind(getItem(position))
+            is SuperheroViewHolder -> holder.bind(getItem(position), viewModel)
         }
     }
 }

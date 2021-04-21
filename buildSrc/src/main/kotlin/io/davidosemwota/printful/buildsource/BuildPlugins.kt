@@ -8,4 +8,5 @@ object BuildPlugins {
     const val kotlin_kapt = "kotlin-kapt"
     const val detekt = "io.gitlab.arturbosch.detekt"
     const val benManes =  "com.github.ben-manes.versions"
+    const val navigation = "androidx.navigation.safeargs.kotlin"
 }

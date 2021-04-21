@@ -19,6 +19,7 @@ buildscript {
         classpath Libs.spotlessPlugin
         classpath Libs.ktlint
         classpath Libs.Detekt.detekt
+        classpath Libs.AndroidX.Navigation.navSafeArgsPlugin
     }
 }
 

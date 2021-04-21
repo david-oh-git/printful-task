@@ -1,5 +1,6 @@
 package io.davidosemwota.superheroes_list.superheroes
 
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.lifecycle.*
 import io.davidosemwota.data.mapper.Mapper
 import io.davidosemwota.data.network.NetworkState
@@ -7,6 +8,7 @@ import io.davidosemwota.data.source.Superhero
 import io.davidosemwota.data.source.SuperheroRepository
 import io.davidosemwota.superheroes_list.SuperheroItem
 import io.davidosemwota.superheroes_list.SuperheroItemMapper
+import io.davidosemwota.ui.livedata.SingleLiveData
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -55,9 +57,19 @@ class ListOfSuperheroesViewModel(
         it.isNotEmpty()
     }
 
+    val event = SingleLiveData<ListOfSuperheroesViewEvent>()
+
     fun refresh() {
         viewModelScope.launch {
             repository.fetchSuperheroesFromApi()
+        }
+    }
+
+    fun openSuperheroFragment(id: Int, imageView: AppCompatImageView) {
+        viewModelScope.launch {
+            event.postValue(
+                ListOfSuperheroesViewEvent.OpenSuperhero(id, imageView)
+            )
         }
     }
 }

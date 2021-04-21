@@ -1,9 +1,11 @@
+
 import io.davidosemwota.printful.buildsource.Libs
 import io.davidosemwota.printful.buildsource.PrintFulModules
 
 plugins {
     id 'com.android.dynamic-feature'
     id 'kotlin-android'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 android {
     compileSdkVersion 30
@@ -26,6 +28,11 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+    compileOptions {
+        sourceCompatibility  JavaVersion.VERSION_1_8
+        targetCompatibility  JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -38,6 +45,8 @@ dependencies {
     implementation Libs.Coroutines.core
     implementation Libs.AndroidX.Fragment.fragment
     implementation Libs.AndroidX.Fragment.fragmentKtx
+    implementation Libs.AndroidX.Navigation.navigationFragment
+    implementation Libs.AndroidX.Navigation.navigationUi
 
     implementation Libs.AndroidX.coreKtx
     implementation Libs.AndroidX.appcompat

@@ -2,6 +2,7 @@
 <navigation
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_app"
     app:startDestination="@id/listOfSuperheroesFragment">
 
@@ -9,5 +10,26 @@
         android:id="@+id/listOfSuperheroesFragment"
         android:name="io.davidosemwota.superheroes_list.superheroes.ListOfSuperheroesFragment"
         app:moduleName="PrintFul.features.superheroes_list"
-        android:label="ListOfSuperheroesFragment" />
+        tools:layout="@layout/fragment_superheroes"
+        android:label="ListOfSuperheroesFragment" >
+
+        <action
+            android:id="@+id/action_listOfSuperheroesFragment_to_superheroFragment"
+            app:destination="@id/superheroFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/superheroFragment"
+        android:name="io.davidosemwota.superheroes_list.superhero.SuperheroFragment"
+        app:moduleName="PrintFul.features.superheroes_list"
+        tools:layout="@layout/fragment_superheroes"
+        android:label="">
+
+        <argument
+            android:name="id"
+            app:argType="integer" />
+
+    </fragment>
+
 </navigation>
