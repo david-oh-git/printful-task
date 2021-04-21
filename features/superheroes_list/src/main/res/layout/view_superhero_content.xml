@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <include
+        android:id="@+id/alterEgo"
+        layout="@layout/superhero_content_item" />
+
+    <include
+        android:id="@+id/firstAppearance"
+        layout="@layout/superhero_content_item" />
+
+    <include
+        android:id="@+id/groupAffiliation"
+        layout="@layout/superhero_content_item" />
+
+    <include
+        android:id="@+id/publisher"
+        layout="@layout/superhero_content_item" />
+
+</LinearLayout>

@@ -58,6 +58,17 @@ class SuperheroFragment : Fragment() {
             transitionName = superheroItem.id.toString()
         }
         requireActivity().actionBar?.title = superheroItem.name
+
+        binding.includeSuperheroBody.apply {
+            alterEgo.title.text = "AlterEgos"
+            alterEgo.content.text = superheroItem.alterEgos
+            publisher.title.text = "Publisher"
+            publisher.content.text = superheroItem.publisher
+            firstAppearance.title.text = "First Appearance"
+            firstAppearance.content.text = superheroItem.firstAppearance
+            groupAffiliation.title.text = "Group Affiliation"
+            groupAffiliation.content.text = superheroItem.groupAffiliation
+        }
     }
 
     private fun setUpToolbar() {

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="view_superheroes_side">12dp</dimen>
+    <dimen name="superhero_content_item_start_margin">8dp</dimen>
 </resources>
