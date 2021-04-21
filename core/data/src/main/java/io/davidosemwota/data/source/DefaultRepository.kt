@@ -42,6 +42,10 @@ class DefaultRepository(
         }
     }
 
+    override suspend fun find(id: Int): Superhero? = withContext(ioDispatcher) {
+        return@withContext localSource.find(id)
+    }
+
     private suspend fun parseApiResponse(response: List<SuperheroResponse>) {
         localSource.deleteDatabase()
         response.forEach { superheroResponse ->

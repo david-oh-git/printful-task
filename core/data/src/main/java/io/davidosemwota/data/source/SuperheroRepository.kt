@@ -11,4 +11,6 @@ interface SuperheroRepository {
     suspend fun getSuperheroes(): Flow<List<Superhero>>
 
     suspend fun fetchSuperheroesFromApi()
+
+    suspend fun find(id: Int): Superhero?
 }

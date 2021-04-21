@@ -12,4 +12,6 @@ interface SuperheroSource {
     suspend fun deleteDatabase()
 
     suspend fun fetchSuperheroesFromApi(): List<SuperheroResponse>?
+
+    suspend fun find(id: Int): Superhero?
 }

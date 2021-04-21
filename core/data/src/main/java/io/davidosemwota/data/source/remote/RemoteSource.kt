@@ -18,15 +18,19 @@ class RemoteSource(
 ) : SuperheroSource {
 
     override suspend fun getSuperheros(): Flow<List<Superhero>> {
-        TODO("Not yet implemented")
+        TODO("Not required")
     }
 
     override suspend fun save(superhero: Superhero) {
-        TODO("Not yet implemented")
+        TODO("Not required")
     }
 
     override suspend fun deleteDatabase() {
-        TODO("Not yet implemented")
+        TODO("Not required")
+    }
+
+    override suspend fun find(id: Int): Superhero? {
+        TODO("Not required")
     }
 
     override suspend fun fetchSuperheroesFromApi(): List<SuperheroResponse>? =

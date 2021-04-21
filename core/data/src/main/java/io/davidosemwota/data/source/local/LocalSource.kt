@@ -25,7 +25,11 @@ class LocalSource(
         superheroDao.emptyDatabase()
     }
 
+    override suspend fun find(id: Int): Superhero? = withContext(ioDispatcher) {
+        return@withContext superheroDao.find(id)
+    }
+
     override suspend fun fetchSuperheroesFromApi(): List<SuperheroResponse>? {
-        TODO("Not yet implemented")
+        TODO("Not required")
     }
 }
