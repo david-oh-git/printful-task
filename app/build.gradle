@@ -94,6 +94,8 @@ dependencies {
     implementation Libs.AndroidX.Navigation.navigationFragment
     implementation Libs.AndroidX.Navigation.navigationUi
     implementation Libs.AndroidX.Navigation.dynamicFeatures
+    // Timber
+    implementation Libs.timber
 
     testImplementation Libs.JUnit.junit
     androidTestImplementation Libs.AndroidX.Test.Ext.junit

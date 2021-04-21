@@ -51,6 +51,10 @@ class ListOfSuperheroesViewModel(
         }
     }
 
+    val isCacheAvailable = Transformations.map(superheroes) {
+        it.isNotEmpty()
+    }
+
     fun refresh() {
         viewModelScope.launch {
             repository.fetchSuperheroesFromApi()

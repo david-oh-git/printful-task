@@ -36,6 +36,7 @@ class ListOfSuperheroesFragment : Fragment() {
 
         observe(viewModel.superheroes, ::onViewDataChange)
         observe(viewModel.state, ::onViewStateChange)
+        observe(viewModel.isCacheAvailable, ::onCacheDataIsAvailable)
         initRecyclerView()
     }
 
@@ -65,6 +66,13 @@ class ListOfSuperheroesFragment : Fragment() {
             is ListOfSuperheroesViewState.Refreshing -> {
             }
         }
+    }
+
+    private fun onCacheDataIsAvailable(isCacheAvailable: Boolean) {
+        if (!isCacheAvailable)
+            viewModel.refresh()
+        else
+            loadedViewState()
     }
 
     private fun errorViewState() {
