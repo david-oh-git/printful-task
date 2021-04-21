@@ -1,0 +1,15 @@
+
+package io.davidosemwota.ui.base
+
+
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewbinding.ViewBinding
+
+/**
+ * Base view holder
+ *
+ * @param binding Data binding generated for the layout.
+ */
+abstract class BaseViewHolder<T : ViewBinding>(
+    val binding: T
+) : RecyclerView.ViewHolder(binding.root)

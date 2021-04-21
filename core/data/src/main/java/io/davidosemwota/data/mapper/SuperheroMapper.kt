@@ -2,6 +2,7 @@ package io.davidosemwota.data.mapper
 
 import io.davidosemwota.data.network.responses.SuperheroResponse
 import io.davidosemwota.data.source.Superhero
+import io.davidosemwota.data.util.defaultValue
 
 class SuperheroMapper : Mapper<SuperheroResponse, Superhero> {
 
@@ -9,11 +10,11 @@ class SuperheroMapper : Mapper<SuperheroResponse, Superhero> {
         return Superhero(
             id = 0,
             name = from.name,
-            alterEgos = from.biography.alterEgos,
-            firstAppearance = from.biography.firstAppearance,
-            publisher = from.biography.publisher,
-            imageUrl = from.images.lg,
-            groupAffiliation = from.connections.groupAffiliation
+            alterEgos = from.biography?.alterEgos ?: defaultValue,
+            firstAppearance = from.biography?.firstAppearance ?: defaultValue,
+            publisher = from.biography?.publisher ?: defaultValue,
+            imageUrl = from.images?.lg ?: defaultValue,
+            groupAffiliation = from.connections?.groupAffiliation ?: defaultValue
         )
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/swipeRefreshlayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,16 +10,16 @@
         android:layout_height="match_parent">
 
         <include
+            android:id="@+id/include_list_loaded"
+            layout="@layout/view_superheroes_list" />
+
+        <include
             android:id="@+id/include_list_empty"
             layout="@layout/view_superheroes_list_empty" />
 
         <include
             android:id="@+id/include_list_error"
             layout="@layout/view_superheroes_list_error" />
-
-        <include
-            android:id="@+id/include_list_empty"
-            layout="@layout/view_superheroes_list_empty" />
 
         <include
             android:id="@+id/include_list_loading"

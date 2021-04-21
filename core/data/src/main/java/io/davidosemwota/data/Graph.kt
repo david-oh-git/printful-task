@@ -16,7 +16,7 @@ object Graph {
     @Volatile
     private var repository: SuperheroRepository? = null
 
-    private fun provideRepository(context: Context): SuperheroRepository {
+    fun provideRepository(context: Context): SuperheroRepository {
         synchronized(this) {
             if (repository == null) {
                 repository = DefaultRepository(

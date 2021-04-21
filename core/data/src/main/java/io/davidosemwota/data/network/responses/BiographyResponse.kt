@@ -1,14 +1,15 @@
 package io.davidosemwota.data.network.responses
 
 import androidx.annotation.Keep
+import io.davidosemwota.data.util.defaultValue
 
 @Keep
 class BiographyResponse(
-        val fullName: String,
-        val alterEgos: String,
-        val aliases: List<String>,
-        val placeOfBirth: String,
-        val firstAppearance: String,
-        val publisher: String,
-        val alignment: String
+        val fullName: String = defaultValue,
+        val alterEgos: String = defaultValue,
+        val aliases: List<String> = emptyList(),
+        val placeOfBirth: String = defaultValue,
+        val firstAppearance: String = defaultValue,
+        val publisher: String = defaultValue,
+        val alignment: String = defaultValue
 )

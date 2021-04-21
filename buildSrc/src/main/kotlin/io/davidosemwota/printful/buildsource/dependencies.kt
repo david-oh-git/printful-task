@@ -16,6 +16,7 @@ object Libs {
     const val httpLogging = "com.squareup.okhttp3:logging-interceptor:4.9.0"
     const val timber = "com.jakewharton.timber:timber:4.7.1"
     const val material = "com.google.android.material:material:1.3.0"
+    const val coil = "io.coil-kt:coil:1.0.0"
 
     const val truth = "com.google.truth:truth:1.1.2"
     const val mockWebServer = "com.squareup.okhttp3:mockwebserver:4.9.0"
@@ -56,6 +57,7 @@ object Libs {
     }
 
     object AndroidX {
+
         const val appcompat = "androidx.appcompat:appcompat:1.2.0"
         const val palette = "androidx.palette:palette:1.0.0"
         const val recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
@@ -70,6 +72,13 @@ object Libs {
             const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:$version"
             const val navigationTesting = "androidx.navigation:navigation-testing:$version"
             const val dynamicFeatures = "androidx.navigation:navigation-dynamic-features-fragment:$version"
+        }
+
+        object Fragment {
+            private const val version = "1.3.2"
+            const val fragment = "androidx.fragment:fragment:$version"
+            const val fragmentKtx = "androidx.fragment:fragment-ktx:$version"
+            const val fragmentTesting = "androidx.fragment:fragment-testing:$version"
         }
 
         object Lifecycle {

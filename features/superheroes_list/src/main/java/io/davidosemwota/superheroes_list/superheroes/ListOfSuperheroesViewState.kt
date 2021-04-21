@@ -1,26 +1,4 @@
-/*
- * MIT License
- *
- * Copyright (c) $today.day/$today.month/2020 $today.hour24:$today.minute   David Osemwota.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
+
 package io.davidosemwota.superheroes_list.superheroes
 
 import io.davidosemwota.ui.base.BaseViewState
@@ -47,11 +25,6 @@ sealed class ListOfSuperheroesViewState : BaseViewState {
     object Loading : ListOfSuperheroesViewState()
 
     /**
-     * Loading on add more elements into characters list.
-     */
-    object AddLoading : ListOfSuperheroesViewState()
-
-    /**
      * Empty characters list.
      */
     object Empty : ListOfSuperheroesViewState()
@@ -60,16 +33,6 @@ sealed class ListOfSuperheroesViewState : BaseViewState {
      * Error on loading characters list.
      */
     object Error : ListOfSuperheroesViewState()
-
-    /**
-     * Error on add more elements into characters list.
-     */
-    object AddError : ListOfSuperheroesViewState()
-
-    /**
-     * No more elements for adding into characters list.
-     */
-    object NoMoreElements : ListOfSuperheroesViewState()
 
     // ============================================================================================
     //  Public helpers methods
@@ -97,13 +60,6 @@ sealed class ListOfSuperheroesViewState : BaseViewState {
     fun isLoading() = this is Loading
 
     /**
-     * Check if current view state is [AddLoading].
-     *
-     * @return True if is add loading state, otherwise false.
-     */
-    fun isAddLoading() = this is AddLoading
-
-    /**
      * Check if current view state is [Empty].
      *
      * @return True if is empty state, otherwise false.
@@ -117,17 +73,4 @@ sealed class ListOfSuperheroesViewState : BaseViewState {
      */
     fun isError() = this is Error
 
-    /**
-     * Check if current view state is [AddError].
-     *
-     * @return True if is add error state, otherwise false.
-     */
-    fun isAddError() = this is AddError
-
-    /**
-     * Check if current view state is [NoMoreElements].
-     *
-     * @return True if is no more elements state, otherwise false.
-     */
-    fun isNoMoreElements() = this is NoMoreElements
 }

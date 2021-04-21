@@ -1,13 +1,14 @@
 package io.davidosemwota.data.network.responses
 
 import androidx.annotation.Keep
+import io.davidosemwota.data.util.defaultValue
 
 @Keep
 data class AppearanceResponse(
-     val gender: String,
-     val race: String,
-     val height: List<String>,
-     val weight: List<String>,
-     val eyeColor: String,
-     val hairColor: String
+        val gender: String = defaultValue,
+        val race: String = defaultValue,
+        val height: List<String> = emptyList(),
+        val weight: List<String> = emptyList(),
+        val eyeColor: String = defaultValue,
+        val hairColor: String = defaultValue
 )

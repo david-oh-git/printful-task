@@ -35,7 +35,7 @@ class DefaultRepository(
                 networkState.value = NetworkState.Success(true)
             }
 
-            else -> {
+            apiResponse.isNotEmpty() -> {
                 parseApiResponse(apiResponse)
                 networkState.value = NetworkState.Success()
             }
