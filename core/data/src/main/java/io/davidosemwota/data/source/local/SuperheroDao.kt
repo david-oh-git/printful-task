@@ -21,4 +21,7 @@ interface SuperheroDao {
 
     @Query("DELETE FROM superheroes")
     suspend fun emptyDatabase()
+
+    @Query("SELECT * FROM superheroes WHERE id = :id")
+    suspend fun find(id: Int): Superhero?
 }

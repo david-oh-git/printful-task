@@ -77,4 +77,43 @@ internal class SuperheroDaoTest {
         assertThat(superhero.name).isEqualTo(expectedSuperhero.name)
         assertThat(superhero.imageUrl).isEqualTo(expectedSuperhero.imageUrl)
     }
+
+    @Test
+    fun `Save multiple superhero items, retrieve item from database`() = runBlockingTest {
+        // Arrange: save a superhero
+        val expectedSuperhero = Superhero(
+                name = "Super Agbakpan",
+                id = 73,
+                groupAffiliation = "The Shagewells Nigerian union of teachers",
+                publisher = "Okodo comics",
+                firstAppearance = "Captain Afrika Issue 218",
+                alterEgos = "Dele Badore",
+                imageUrl = "http://cat.jpg"
+        )
+        val id = 43
+        val expectedSuperheroII = Superhero(
+                name = "Captain Afrika",
+                id = id,
+                groupAffiliation = "The Black Society, The Panthers",
+                publisher = "Vanguard publishing house",
+                firstAppearance = "Captain Afrika Issue 2",
+                alterEgos = "Unknow",
+                imageUrl = "http://captain.jpg"
+        )
+
+        superheroDao.save(expectedSuperhero)
+        superheroDao.save(expectedSuperheroII)
+
+        // Act: Get only item from database
+        val superhero = superheroDao.find(id)
+
+        //Assert: confirm results
+
+        assertThat(superhero?.alterEgos).isEqualTo(expectedSuperheroII.alterEgos)
+        assertThat(superhero?.firstAppearance).isEqualTo(expectedSuperheroII.firstAppearance)
+        assertThat(superhero?.id).isEqualTo(expectedSuperheroII.id)
+        assertThat(superhero?.publisher).isEqualTo(expectedSuperheroII.publisher)
+        assertThat(superhero?.name).isEqualTo(expectedSuperheroII.name)
+        assertThat(superhero?.imageUrl).isEqualTo(expectedSuperheroII.imageUrl)
+    }
 }

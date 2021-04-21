@@ -9,11 +9,17 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import io.davidosemwota.superheroes_list.R
 import io.davidosemwota.superheroes_list.databinding.FragmentSuperheroBinding
+import io.davidosemwota.ui.extentions.setSharedElementTransitions
 
 class SuperheroFragment : Fragment() {
 
     private lateinit var binding: FragmentSuperheroBinding
     private val args: SuperheroFragmentArgs by navArgs()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setSharedElementTransitions()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,6 +33,10 @@ class SuperheroFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setUpToolbar()
+    }
+
+    private fun setUpToolbar() {
         (requireActivity() as AppCompatActivity).run {
             setSupportActionBar(binding.toolbar)
             actionBar?.setDisplayHomeAsUpEnabled(true)
