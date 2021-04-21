@@ -60,13 +60,13 @@ class SuperheroFragment : Fragment() {
         requireActivity().actionBar?.title = superheroItem.name
 
         binding.includeSuperheroBody.apply {
-            alterEgo.title.text = "AlterEgos"
+            alterEgo.title.text = getString(R.string.alterEgo_title)
             alterEgo.content.text = superheroItem.alterEgos
-            publisher.title.text = "Publisher"
+            publisher.title.text = getString(R.string.publisher_title)
             publisher.content.text = superheroItem.publisher
-            firstAppearance.title.text = "First Appearance"
+            firstAppearance.title.text = getString(R.string.first_appearance_title)
             firstAppearance.content.text = superheroItem.firstAppearance
-            groupAffiliation.title.text = "Group Affiliation"
+            groupAffiliation.title.text = getString(R.string.group_affiliation)
             groupAffiliation.content.text = superheroItem.groupAffiliation
         }
     }

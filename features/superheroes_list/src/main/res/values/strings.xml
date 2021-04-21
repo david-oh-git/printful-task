@@ -2,4 +2,8 @@
 <resources>
     <string name="superheroes_list_empty">No superheroes :(</string>
     <string name="superheroes_error">Error fetching data ...</string>
+    <string name="alterEgo_title">AlterEgos</string>
+    <string name="publisher_title">Publisher</string>
+    <string name="first_appearance_title">First Appearance</string>
+    <string name="group_affiliation">Group Affiliation</string>
 </resources>
