@@ -61,6 +61,7 @@ dependencies {
 
     testImplementation Libs.mockWebServer
     testImplementation Libs.mockk
+    testImplementation Libs.nhaarmanMock
     testImplementation Libs.archCore
     //Robolectric
     testImplementation Libs.robolectric

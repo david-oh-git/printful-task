@@ -21,6 +21,7 @@ object Libs {
     const val truth = "com.google.truth:truth:1.1.2"
     const val mockWebServer = "com.squareup.okhttp3:mockwebserver:4.9.0"
     const val mockk = "io.mockk:mockk:1.10.2"
+    const val nhaarmanMock = "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
     const val robolectric = "org.robolectric:robolectric:4.5.1"
     const val archCore = "androidx.arch.core:core-testing:2.1.0"
 
