@@ -1,6 +1,10 @@
 package io.davidosemwota.data.network.responses
 
 import com.google.common.truth.Truth.assertThat
+import io.davidosemwota.data.util.generateEyeColor
+import io.davidosemwota.data.util.generateGender
+import io.davidosemwota.data.util.generateHairColor
+import io.davidosemwota.data.util.generateRace
 import org.junit.jupiter.api.Test
 
 internal class AppearanceResponseTest {
@@ -8,12 +12,12 @@ internal class AppearanceResponseTest {
     @Test
     fun createAppearanceResponse_getCorrectAttributes() {
 
-        val gender = "Female"
-        val race = "African"
+        val gender = generateGender()
+        val race = generateRace()
         val height = listOf("6.1", "185 cm")
         val weight = listOf("22 KG", " 5 pounds")
-        val eyeColor = "green"
-        val hairColor = "purple"
+        val eyeColor = generateEyeColor()
+        val hairColor = generateHairColor()
 
 
         val appearanceResponse = AppearanceResponse(
