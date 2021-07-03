@@ -59,26 +59,10 @@ class ListOfSuperheroesFragment : Fragment() {
 
     private fun onViewStateChange(viewState: ListOfSuperheroesViewState) {
         binding.swipeRefreshLayout.isRefreshing = viewState.isRefreshing()
-        when (viewState) {
-            is ListOfSuperheroesViewState.Error -> {
-                errorViewState()
-            }
-
-            is ListOfSuperheroesViewState.Loading -> {
-                loadingViewState()
-            }
-
-            is ListOfSuperheroesViewState.Loaded -> {
-                loadedViewState()
-            }
-
-            is ListOfSuperheroesViewState.Empty -> {
-                emptyViewState()
-            }
-
-            is ListOfSuperheroesViewState.Refreshing -> {
-            }
-        }
+        binding.includeListError.root.visible = viewState.isError()
+        binding.includeListEmpty.root.visible = viewState.isEmpty()
+        binding.includeListLoaded.root.visible = viewState.isLoaded()
+        binding.includeListLoading.root.visible = viewState.isLoading()
     }
 
     private fun onViewEventChange(viewEvent: ListOfSuperheroesViewEvent) {
@@ -96,32 +80,11 @@ class ListOfSuperheroesFragment : Fragment() {
             loadedViewState()
     }
 
-    private fun errorViewState() {
-        binding.includeListError.root.visible = true
-        binding.includeListEmpty.root.visible = false
-        binding.includeListLoaded.root.visible = false
-        binding.includeListLoading.root.visible = false
-    }
-
-    private fun loadingViewState() {
-        binding.includeListLoading.root.visible = true
-        binding.includeListError.root.visible = false
-        binding.includeListEmpty.root.visible = false
-        binding.includeListLoaded.root.visible = false
-    }
-
     private fun loadedViewState() {
         binding.includeListLoaded.root.visible = true
         binding.includeListLoading.root.visible = false
         binding.includeListError.root.visible = false
         binding.includeListEmpty.root.visible = false
-    }
-
-    private fun emptyViewState() {
-        binding.includeListEmpty.root.visible = true
-        binding.includeListError.root.visible = false
-        binding.includeListLoaded.root.visible = false
-        binding.includeListLoading.root.visible = false
     }
 
     private fun initRecyclerView() {

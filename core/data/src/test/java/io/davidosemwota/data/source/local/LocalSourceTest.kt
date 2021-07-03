@@ -14,7 +14,6 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-
 internal class LocalSourceTest {
 
     @MockK(relaxed = true)
